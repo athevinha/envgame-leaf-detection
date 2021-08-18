@@ -94,6 +94,12 @@ img {
 .width_100 {
   width: 100%;
 }
+.color_white {
+  color: white;
+}
+.font_15 {
+  font-size: 15px;
+}
 @media (max-width: 768px) {
   img {
     width: 100%;

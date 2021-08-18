@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PLANT DISEASE CLASSIFIER</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text_center">
+          <br />
+          <h5 style="color: white">MODEL CHUẨN ĐOÁN BỆNH CỦA LÁ</h5>
+          <br />
+        </div>
+      </div>
+    </div>
+    <table class="table table table_admin_delete">
+      <tbody>
+        <tr>
+          <td class="text_center color_white font_15">Táo - bệnh nấm</td>
+          <td class="text_center color_white font_15">
+            Táo - bệnh thối đen nho
+          </td>
+        </tr>
+        <tr>
+          <td class="text_center color_white font_15">Táo - bệnh gỉ lá</td>
+          <td class="text_center color_white font_15">Táo - phát triển tốt</td>
+        </tr>
+        <tr>
+          <td class="text_center color_white font_15">
+            Anh đào - bệnh phấn trắng (chua)
+          </td>
+          <td class="text_center color_white font_15">
+            Anh đào - phát triển tốt (chua)
+          </td>
+        </tr>
+        <tr>
+          <td class="text_center color_white font_15">
+            Ngô & bắp - bệnh đốm lá xám
+          </td>
+          <td class="text_center color_white font_15">
+            Ngô & bắp - bệnh 'gỉ sắt' nâu sẫm
+          </td>
+        </tr>
+        <tr>
+          <td class="text_center color_white font_15">
+            Ngô & bắp - bệnh bạc lá
+          </td>
+          <td class="text_center color_white font_15">
+            Ngô & bắp - phát triển tốt
+          </td>
+        </tr>
+        <tr>
+          <td class="text_center color_white font_15">
+            Nho - bệnh thối đen nho
+          </td>
+          <td class="text_center color_white font_15">Nho - bệnh sởi đen</td>
+        </tr>
+        <tr>
+          <td class="text_center color_white font_15">
+            Nho - bệnh bạc lá (Bệnh thán thư)
+          </td>
+          <td class="text_center color_white font_15">Nho - phát triển tốt</td>
+        </tr>
+        <tr>
+          <td class="text_center color_white font_15">
+            Cam - bệnh vàng lá gân xanh
+          </td>
+          <td class="text_center color_white font_15">
+            Đào - bệnh đốm lá do vi khuẩn Bacterial Leaf Spot Disease
+          </td>
+        </tr>
+        <tr>
+          <td class="text_center color_white font_15">Đào - phát triển tốt</td>
+          <td class="text_center color_white font_15">
+            Ớt chuông- bệnh đốm lá do vi khuẩn Bacterial Leaf Spot Disease
+          </td>
+        </tr>
+        <tr>
+          <td class="text_center color_white font_15">
+            Ớt chuông - phát triển tốt
+          </td>
+          <td class="text_center color_white font_15">
+            Khoai tây - bệnh bạc lá
+          </td>
+        </tr>
+        <tr>
+          <td class="text_center color_white font_15">
+            Khoai tây - bệnh mốc sương
+          </td>
+          <td class="text_center color_white font_15">
+            Khoai tây - phát triển tốt
+          </td>
+        </tr>
+        <tr>
+          <td class="text_center color_white font_15">
+            Dâu rừng - phát triển tốt
+          </td>
+          <td class="text_center color_white font_15">
+            Đậu tương - phát triển tốt
+          </td>
+        </tr>
+        <tr>
+          <td class="text_center color_white font_15">
+            Bí đao - bệnh phấn trắng
+          </td>
+          <td class="text_center color_white font_15">
+            Dâu - bệnh lá cháy sém (rụng, héo)
+          </td>
+        </tr>
+        <tr>
+          <td class="text_center color_white font_15">Dâu - phát triển tốt</td>
+          <td class="text_center color_white font_15">
+            Việt quất - phát triển tốt
+          </td>
+        </tr>
+        <tr>
+          <td class="text_center color_white font_15">Cà chua - bệnh bạc lá</td>
+          <td class="text_center color_white font_15">
+            Cà chua - bệnh mốc sương
+          </td>
+        </tr>
+        <tr>
+          <td class="text_center color_white font_15">
+            Cà chua - bệnh mốc lá Passalora fulva
+          </td>
+          <td class="text_center color_white font_15">
+            Cà chua - bệnh đốm lá Septoria
+          </td>
+        </tr>
+        <tr>
+          <td class="text_center color_white font_15">
+            Cà chua - bệnh đốm vi khuẩn
+          </td>
+          <td class="text_center color_white font_15">
+            Cà chua - bệnh thán thư
+          </td>
+        </tr>
+        <tr>
+          <td class="text_center color_white font_15">
+            Cà chua - bệnh vi rút vàng xoăn (xoăn lá)
+          </td>
+          <td class="text_center color_white font_15">
+            Cà chua - bệnh xoăn lá (bệnh khảm)
+          </td>
+        </tr>
+        <tr>
+          <td class="text_center color_white font_15">
+            Cà chua - bệnh đốm lá do vi khuẩn Bacterial Leaf Spot
+          </td>
+          <td class="text_center color_white font_15">
+            Cà chua - phát triển tốt
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/3.8.0/tf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/1.0.1/progressbar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
