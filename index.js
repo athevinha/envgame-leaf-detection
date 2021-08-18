@@ -1,4 +1,4 @@
-let model;
+let model, net;
 let class_indices;
 let fileUpload = document.getElementById("uploadImage");
 let img = document.getElementById("image");
@@ -25,15 +25,25 @@ async function fetchData() {
 
 async function initialize() {
   let status = document.querySelector(".init_status");
+  let log_status = document.querySelector(".log_init_status");
   status.innerHTML =
     "Loading Model ... <spam><i class='fa fa-spinner fa-spin'></i></spam>";
+  // log_status.innerHTML = "Log: ";
   status.className = "init_status width_100 text-center ";
+  log_status.innerHTML =
+    "<b>Log:</b> Loading leaf disease model... <spam><i class='fa fa-spinner fa-spin'></i></spam> ";
   model = await tf.loadLayersModel("./model/model.json");
-  status.innerHTML = "Model Loaded Successfully!";
+  log_status.innerHTML =
+    "<b>Log:</b> Leaf disease model loaded Successfully! <br/> <b>Log:</b> Loading Mobilenet model... <spam><i class='fa fa-spinner fa-spin'></i></spam> ";
+  net = await mobilenet.load();
+  log_status.innerHTML =
+    "<b>Log:</b> Leaf disease model loaded Successfully! <br/> <b>Log:</b> Mobilenet model loaded Successfully! ";
+  status.innerHTML = "Model Loaded Successfully! ";
   status.className = "init_status width_100 text-center";
 }
 
 async function predict() {
+  console.log(tf);
   let img = document.getElementById("image");
   let offset = tf.scalar(255);
   let tensorImg = tf.browser
@@ -43,11 +53,14 @@ async function predict() {
     .expandDims();
   let tensorImg_scaled = tensorImg.div(offset);
   prediction = await model.predict(tensorImg_scaled).data();
-
+  prediction_imagenet = await net.classify(img);
+  console.log(prediction_imagenet);
   fetchData().then((data) => {
     predicted_class = tf.argMax(prediction);
-
     class_idx = Array.from(predicted_class.dataSync())[0];
+    document.querySelector(".imagenet_pred_class").innerHTML = `${
+      prediction_imagenet[0].className
+    } - ${parseFloat(prediction_imagenet[0].probability * 100).toFixed(2)} % `;
     document.querySelector(".pred_class").innerHTML = data[class_idx];
     document.getElementsByClassName(
       "fix_disease"
@@ -63,7 +76,7 @@ async function predict() {
 
     progressBar.animate(prediction[class_idx] - 0.005); // percent
 
-    pconf.style.display = "block";
+    // pconf.style.display = "block";
 
     confidence.innerHTML = Math.round(prediction[class_idx] * 100);
   });
@@ -71,6 +84,17 @@ async function predict() {
 
 fileUpload.addEventListener("change", function (e) {
   let uploadedImage = e.target.value;
+  // const img = new Image();
+  img.onload = function () {
+    console.log("width:" + this.width + "height:" + this.height);
+    let op = this.height / 300;
+    console.log("width:" + this.width / op + "height:" + this.height / op);
+    this.style.height = `${this.height / op}px`;
+    let max_width = document.getElementById("box_img").offsetWidth;
+    this.style.marginLeft = `${(max_width - this.width - 30) / 2}px`;
+    // this.style.width = `${news}px`;
+  };
+  // img.src = 'http://www.google.com/intl/en_ALL/images/logo.gif';
   if (uploadedImage) {
     document.getElementById("blankFile-1").innerHTML = uploadedImage.replace(
       "C:\\fakepath\\",
@@ -96,6 +120,7 @@ fileUpload.addEventListener("change", function (e) {
     boxResult.style.display = "block";
     const reader = new FileReader();
     reader.readAsDataURL(file);
+    console.log(reader);
     reader.addEventListener("load", function () {
       img.style.display = "block";
       img.setAttribute("src", this.result);

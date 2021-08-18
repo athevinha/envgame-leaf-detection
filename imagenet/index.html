@@ -22,6 +22,7 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -62,31 +63,21 @@
               id="uploadImage"
             />
           </div>
-          <br />
-          <i style="color: white">
-            "Để chuẩn đoán bệnh của cây trồng một chuẩn xác thì hãy đưa những
-            bức hình về 1 lá của cây có triệu chứng (không lẫn thứ gì khác vào
-            )"
-          </i>
         </div>
-        <div class="col-sm-6 text_center box" id= "box_img">
-          <img src="./test_dataset/unval_img.PNG" alt="" id="image" />
+        <div class="col-sm-6 text_center box">
+          <img src="" alt="" id="image" width="224" height="224" />
         </div>
       </div>
     </div>
     <div class="container">
       <div class="box box-result row">
         <div class="col-sm-6 text-center">
-          <h5 class="init_status width_100"></h5>
-          <p class="log_init_status width_100"></p>
+          <h3 class="init_status width_100"></h3>
         </div>
 
         <div class="col-sm-6">
           <div>
             <p>
-              <span style="color: white">Dự đoán Hình ảnh bạn đưa vào:</span>
-              <b><span class="imagenet_pred_class"></span></b>
-              <br />
               <span style="color: white">Cây trồng bị nhiễm:</span>
               <b><span class="pred_class"></span></b>
               <br />
@@ -109,10 +100,10 @@
       </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/3.8.0/tf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/1.0.1/progressbar.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/3.8.0/tf.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/1.0.1/progressbar.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
