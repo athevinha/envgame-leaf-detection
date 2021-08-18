@@ -17,7 +17,9 @@ p,
 span {
   color: #20c997;
 }
-
+.border_none {
+  border: none !important;
+}
 h1 {
   text-transform: uppercase;
 }
@@ -33,7 +35,10 @@ hr {
 .github-fork-ribbon:before {
   background: limegreen !important;
 }
-
+.classes_model {
+  height: 40%;
+  margin-top: 5%;
+}
 #uploadImage {
   border: 1px dashed #20c997;
   padding: 20px;
@@ -106,5 +111,8 @@ img {
   }
   .init_status {
     margin-top: 0%;
+  }
+  .back_black_mobile {
+    background-color: #20c997;
   }
 }
