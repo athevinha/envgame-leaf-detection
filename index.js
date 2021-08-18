@@ -81,20 +81,24 @@ async function predict() {
     confidence.innerHTML = Math.round(prediction[class_idx] * 100);
   });
 }
-
 fileUpload.addEventListener("change", function (e) {
   let uploadedImage = e.target.value;
-  // const img = new Image();
   img.onload = function () {
-    console.log("width:" + this.width + "height:" + this.height);
-    let op = this.height / 300;
-    console.log("width:" + this.width / op + "height:" + this.height / op);
-    this.style.height = `${this.height / op}px`;
-    let max_width = document.getElementById("box_img").offsetWidth;
-    this.style.marginLeft = `${(max_width - this.width - 30) / 2}px`;
-    // this.style.width = `${news}px`;
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      let max_width = document.getElementById("box_img").offsetWidth;
+      let op = this.width / max_width;
+      this.style.width = max_width;
+    } else {
+      let op = this.height / 300;
+      this.style.height = `${this.height / op}px`;
+      let max_width = document.getElementById("box_img").offsetWidth;
+      this.style.marginLeft = `${(max_width - this.width - 30) / 2}px`;
+    }
   };
-  // img.src = 'http://www.google.com/intl/en_ALL/images/logo.gif';
   if (uploadedImage) {
     document.getElementById("blankFile-1").innerHTML = uploadedImage.replace(
       "C:\\fakepath\\",

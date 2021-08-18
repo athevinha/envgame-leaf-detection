@@ -82,6 +82,9 @@ img {
   border: 1px rgb(0, 119, 128) solid;
   border-radius: 20px;
 }
+.back_black {
+  background: #20c997;
+}
 .init_status {
   color: #20c997;
   border-radius: 20px;
@@ -92,6 +95,9 @@ img {
   width: 100%;
 }
 @media (max-width: 768px) {
+  img {
+    width: 100%;
+  }
   .init_status {
     margin-top: 0%;
   }
