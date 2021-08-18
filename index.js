@@ -79,6 +79,7 @@ async function predict() {
     // pconf.style.display = "block";
 
     confidence.innerHTML = Math.round(prediction[class_idx] * 100);
+    window.scrollTo(0, document.body.scrollHeight);
   });
 }
 fileUpload.addEventListener("change", function (e) {
@@ -93,7 +94,7 @@ fileUpload.addEventListener("change", function (e) {
       let op = this.width / max_width;
       this.style.width = max_width;
     } else {
-      let op = this.height / 300;
+      let op = this.height / 280;
       this.style.height = `${this.height / op}px`;
       let max_width = document.getElementById("box_img").offsetWidth;
       this.style.marginLeft = `${(max_width - this.width - 30) / 2}px`;
