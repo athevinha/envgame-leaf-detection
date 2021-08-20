@@ -68,6 +68,15 @@ async function predict() {
     document.getElementsByClassName(
       "fix_disease"
     )[0].innerHTML = `Cách chữa trị ${data[class_idx]}`;
+
+    const d = new Date();
+    document.getElementsByClassName(
+      "weather"
+    )[0].href = `https://www.google.com/search?q=d%E1%BB%B1+b%C3%A1o+th%E1%BB%9Di+ti%E1%BA%BFt`;
+    document.getElementsByClassName("weather")[0].innerHTML = `${d.getDate()}/${
+      d.getMonth() + 1
+    }/${d.getFullYear()}`;
+
     document.querySelector(".inner").innerHTML = `${parseFloat(
       prediction[class_idx] * 100
     ).toFixed(2)}% SURE`;
@@ -98,6 +107,7 @@ fileUpload.addEventListener("change", function (e) {
       this.style.height = `${this.height / op}px`;
       let max_width = document.getElementById("box_img").offsetWidth;
       this.style.marginLeft = `${(max_width - this.width - 30) / 2}px`;
+      this.style.marginTop = `8px`;
     }
   };
   if (uploadedImage) {
