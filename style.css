@@ -2,6 +2,12 @@
   text-align: center;
   font-family: sans-serif;
 }
+@media (min-width: 768px) {
+  body {
+    zoom: 90%;
+  }
+}
+
 html,
 body {
   width: 100%;
@@ -39,11 +45,16 @@ hr {
   height: 40%;
   margin-top: 5%;
 }
-#uploadImage {
-  border: 1px dashed #20c997;
-  padding: 20px;
+.cloudinary-button {
+  border: 2px dashed #20c997;
+  background-color: rgb(0, 17, 51) !important;
+  padding: 25px !important;
   border-radius: 10px;
+  font-size: 20px !important;
   width: 100%;
+}
+.cloudinary-button:hover {
+  border: 2px dashed white;
 }
 
 img {
