@@ -6,13 +6,14 @@ let boxResult = document.querySelector(".box-result");
 let confidence = document.querySelector(".confidence");
 let pconf = document.querySelector(".box-result p");
 let classes = [];
+
 let progressBar = new ProgressBar.Circle("#progress", {
   color: "limegreen",
   strokeWidth: 10,
   duration: 2000, // milliseconds
   easing: "easeInOut",
 });
-const socket = io("https://api.envgame.online/");
+const socket = io("http://localhost:8080");
 async function fetchData() {
   let response = await fetch("./model/class_indices.json");
   let data = await response.json();
@@ -52,13 +53,9 @@ function onload_ai() {
         "không phân tích được";
       document.getElementsByClassName("fix_disease")[0].style = "color:red";
       document.getElementsByClassName("weather")[0].style = "color:red";
-
       document.querySelector(".inner").innerHTML = ``;
-
       progressBar.animate(0.005 - 0.005);
-
       pconf.style.display = "block";
-
       confidence.innerHTML = Math.round(0 * 100);
     }
   });
@@ -79,6 +76,9 @@ var myWidget = cloudinary.createUploadWidget(
       img.crossOrigin = "anonymous";
       img.setAttribute("src", result.info.url);
       img.onload = function () {
+        // initialize().then(() => {
+        //   predict();
+        // });
         if (
           /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
             navigator.userAgent
@@ -134,7 +134,6 @@ async function initialize() {
   model = await tf.loadLayersModel("./model/model.json");
   log_status.innerHTML =
     "<b>Log:</b> Leaf disease model loaded Successfully! <br/> <b>Log:</b> Loading Mobilenet model... <spam><i class='fa fa-spinner fa-spin'></i></spam> ";
-  net = await mobilenet.load();
   log_status.innerHTML =
     "<b>Log:</b> Leaf disease model loaded Successfully! <br/> <b>Log:</b> Mobilenet model loaded Successfully! ";
   status.innerHTML = "Model Loaded Successfully! ";
