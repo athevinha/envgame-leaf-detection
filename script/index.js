@@ -9,6 +9,7 @@ let model,
   classes = [],
   status = document.querySelector(".init_status"),
   log_status = document.querySelector(".log_init_status"),
+  toast = document.getElementById("snackbar"),
   progressBar = new ProgressBar.Circle("#progress", {
     color: "limegreen",
     strokeWidth: 10,

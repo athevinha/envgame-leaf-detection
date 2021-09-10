@@ -24,8 +24,9 @@
     />
     <link rel="stylesheet" href="./style.css" />
   </head>
-  <body>
+  <body onload = "onload_model()">
     <hr />
+    <div id="snackbar"> Loading model... <spam><i class='fa fa-spinner fa-spin'></i></spam></div>
     <div class="container">
       <div class="row">
         <div class="col-sm-12 text_center">
@@ -138,6 +139,7 @@
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
       crossorigin="anonymous"
     ></script>
+    
     <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>  
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -158,6 +160,7 @@
     <script src="./script/check_is_leaf.js"></script>
     <script src="./script/predict.js"></script>
     <script src="./script/upload.js"></script>
+    <script src="./script/toast.js"></script>
 <script>
 
        </script>

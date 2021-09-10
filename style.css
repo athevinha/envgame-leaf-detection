@@ -127,3 +127,70 @@ img {
     background-color: #20c997;
   }
 }
+/* =======================TOAST================================ */
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  background-color: #20c997;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: calc(100vw - 125px);
+  top: 10vh;
+  font-size: 17px;
+  transition: 1s;
+  border-radius: 50px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 1s, fadeout 1s 2.5s;
+  animation: fadein 1s, fadeout 1s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    left: 120vw;
+    opacity: 0;
+  }
+  to {
+    left: calc(100vw - 125px);
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    left: 120vw;
+    opacity: 0;
+  }
+  to {
+    left: calc(100vw - 125px);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    left: calc(100vw - 125px);
+    opacity: 1;
+  }
+  to {
+    left: 120vw;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    left: calc(100vw - 125px);
+    opacity: 1;
+  }
+  to {
+    left: 120vw;
+    opacity: 0;
+  }
+}

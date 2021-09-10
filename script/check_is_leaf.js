@@ -12,9 +12,11 @@ function check_is_leaf(list_detect) {
   document.querySelector(".imagenet_pred_class").style = "color:red";
   if (check_is_leaf_imagga(list_detect)) {
     is_leaf();
-    initialize().then(() => {
-      predict();
-    });
+    // initialize().then(() => { // load từ khi onload...
+    if (model) predict();
+    else {
+    }
+    // });
   } else {
     not_leaf();
   }
@@ -64,7 +66,7 @@ function check_is_leaf_imagga(list_detect) {
 //   }
 //   return false;
 // }
-// // dự phòng nếu imagga hỏng....
+// // dự phòng nếu model thứ 1 hỏng....
 // let list_detect = detect_is_leaf.detection;
 // console.log(list_detect);
 // show_result_is_leaf = ``;
