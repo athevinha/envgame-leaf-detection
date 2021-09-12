@@ -15,6 +15,7 @@ function check_is_leaf(list_detect) {
     // initialize().then(() => { // load từ khi onload...
     if (model) predict();
     else {
+      alert('đợi model load đã nhé ^^ !');
     }
     // });
   } else {
