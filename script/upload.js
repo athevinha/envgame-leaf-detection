@@ -50,7 +50,7 @@ var myWidget = cloudinary.createUploadWidget(
 );
 function detect_is_leaf(url) {
   axios
-    .post("https://api.envgame.online/api/envgame/ai/detect", {
+    .post(".......... your api.........", {
       url: url,
     })
     .then(function (res) {
